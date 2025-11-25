@@ -1,0 +1,71 @@
+<div class="dashboard-content-wrapper">
+    <h2>Dashboard de Veículos Ford</h2>
+
+    <div class="dashboard-card search-model-card">
+        <h3>Buscar Veículo por Modelo</h3>
+        <input 
+            type="text" 
+            placeholder="Digite o nome do modelo..." 
+            [(ngModel)]="searchModelTerm" 
+            (input)="searchVehicleModels()"
+        >
+        <select [(ngModel)]="selectedVehicleModelId" (change)="selectVehicleModel()">
+            <option [ngValue]="null">Selecione um modelo</option>
+            <option *ngFor="let vehicle of availableVehicles" [ngValue]="vehicle.id">
+                {{ vehicle.model }}
+            </option>
+        </select>
+    </div>
+
+    <div class="dashboard-main-area">
+        <div class="dashboard-card vehicle-display-card">
+            <img [src]="selectedVehicleImage" alt="Imagem do Veículo" *ngIf="selectedVehicleImage">
+            <p *ngIf="!selectedVehicleImage">Selecione um modelo para ver a imagem.</p>
+        </div>
+
+        <div class="dashboard-data-metrics">
+            <div class="dashboard-card metric-card">
+                <h4>Total de Vendas</h4>
+                <p>{{ totalSales | number }}</p>
+            </div>
+            <div class="dashboard-card metric-card">
+                <h4>Veículos Conectados</h4>
+                <p>{{ connectedVehicles | number }}</p>
+            </div>
+            <div class="dashboard-card metric-card">
+                <h4>Software Atualizado</h4>
+                <p>{{ updatedSoftwareVehicles | number }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card vehicle-data-table-card">
+        <h3>Buscar Dados do Veículo por Código</h3>
+        <input 
+            type="text" 
+            placeholder="Digite o código do veículo (ex: 2FRHDUYS2Y63NHD22454)"
+            [(ngModel)]="searchCodeTerm"
+        >
+        <button (click)="searchVehicleData()">Buscar Dados</button>
+
+        <div class="vehicle-details" *ngIf="vehicleData">
+            <h4>Detalhes do Modelo: {{ vehicleData.model }} (Código: {{ vehicleData.vehicleCode }})</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Velocidade</td><td>{{ vehicleData.data.speed }}</td></tr>
+                    <tr><td>Nível de Combustível</td><td>{{ vehicleData.data.fuelLevel }}</td></tr>
+                    <tr><td>Pressão dos Pneus</td><td>{{ vehicleData.data.tirePressure }}</td></tr>
+                    <tr><td>Temperatura do Motor</td><td>{{ vehicleData.data.engineTemp }}</td></tr>
+                    <tr><td>Vida Útil do Óleo</td><td>{{ vehicleData.data.oilLife }}</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p *ngIf="!vehicleData && searchCodeTerm && searched">Nenhum dado encontrado para o código {{ searchCodeTerm }}.</p>
+    </div>
+</div>

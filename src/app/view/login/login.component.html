@@ -1,0 +1,55 @@
+<div class="login-container">
+  <div class="login-box-wrapper">
+
+    <div class="login-image-side">
+      <img src="imagem/rangerr.png" alt="Imagem Ranger">
+    </div>
+
+    <div class="card-side">
+      
+      <img src="imagem/ford.png" alt="Logo" class="login-logo">
+      <h2 class="title">Boas-vindas</h2>
+
+      <div class="input-row">
+        <div class="input-box" [class.erro]="loginInvalido">
+          <i class="bi bi-person"></i>
+          <input type="text" [(ngModel)]="usuario" placeholder="Insira seu e-mail">
+        </div>
+        <i class="bi bi-info-circle info-icon"></i>
+      </div>
+
+      <div class="input-row">
+        <div class="input-box" [class.erro]="loginInvalido">
+          <i class="bi bi-lock"></i>
+          <input [type]="mostrarSenha ? 'text' : 'password'" [(ngModel)]="senha" placeholder="Insira sua senha">
+          
+          <i class="bi" 
+             [class.bi-eye-slash]="!mostrarSenha" 
+             [class.bi-eye]="mostrarSenha" 
+             (click)="alternarSenha()"
+             style="cursor: pointer;"></i>
+        </div>
+        <div style="width: 24px;"></div> 
+      </div>
+
+      <div class="toggle-row">
+        <span>Logar automaticamente</span>
+        
+        <div class="toggle-container">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="manterLogado">
+            <span class="slider round"></span>
+          </label>
+          <i class="bi bi-info-circle info-icon"></i>
+        </div>
+      </div>
+
+      <button (click)="fazerLogin()">Entrar</button>
+
+      @if (loginInvalido) {
+        <p class="msg-erro">Usuário ou senha incorretos!</p>
+      }
+
+    </div>
+  </div>
+</div>

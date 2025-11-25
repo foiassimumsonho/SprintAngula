@@ -1,0 +1,71 @@
+<div class="home-container">
+
+  <header class="top-bar">
+    <div class="left-section">
+      <button class="btn-menu" (click)="alternarMenu()">
+        <i class="bi bi-list"></i>
+      </button>
+
+     
+    </div>
+    
+    <div class="user-info">
+      <span>Admin</span>
+      <i class="bi bi-person-circle"></i>
+    </div>
+  </header>
+
+
+  <aside class="sidebar" [class.aberto]="menuAberto">
+    
+    <div class="sidebar-header">
+      <div class="brand">
+        <img src="imagem/ford.png" alt="Logo Menu" class="sidebar-logo">
+      </div>
+      
+      <i class="bi bi-x-lg btn-fechar" (click)="fecharMenu()"></i>
+    </div>
+
+    <ul class="menu-list">
+      <li class="menu-item active" (click)="fecharMenu()">
+        <i class="bi bi-house-door"></i>
+        <span>Home</span>
+      </li>
+      <li class="menu-item" (click)="fecharMenu()">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </li>
+      
+    </ul>
+
+    <div class="sidebar-footer" (click)="sair()">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Sair</span>
+    </div>
+  </aside>
+
+  @if (menuAberto) {
+    <div class="overlay" (click)="fecharMenu()"></div>
+  }
+
+ <main>
+
+ 
+<div id="carousel-title"></div>
+
+<div class="welcome-message">
+    <div class="message-header">Sistema de dados FORD</div>
+    <div class="message-body">Seja bem vindo(a)!</div>
+</div>
+<div class="fundo-marca">
+      <img src="imagem/rangerr.png" alt="Marca D'água">
+    </div>
+
+
+    
+ </main>
+  
+  
+
+</div>
+

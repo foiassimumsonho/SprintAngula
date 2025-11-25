@@ -1,0 +1,208 @@
+/* --- ESTILOS DO DASHBOARD --- */
+
+.dashboard-content-wrapper {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #1351d8;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+h3 {
+    color: #1351d8;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h4 {
+    color: #1351d8;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.dashboard-card input[type="text"],
+.dashboard-card select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd;
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.dashboard-card input[type="text"]:focus,
+.dashboard-card select:focus {
+    border-color: #1351d8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(19, 81, 216, 0.3);
+}
+
+.dashboard-card button {
+    padding: 12px 25px;
+    background-color: #1351d8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-card button:hover {
+    background-color: #0f3e8f;
+}
+
+.dashboard-main-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.vehicle-display-card {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    background-color: #f8f8f8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+}
+
+.vehicle-display-card img {
+    max-width: 100%;
+    max-height: 320px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.vehicle-display-card p {
+    color: #888;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.dashboard-data-metrics {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.metric-card {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-card h4 {
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.metric-card p {
+    font-size: 2.2em;
+    font-weight: bolder;
+    color: #1351d8;
+    line-height: 1.2;
+}
+
+.vehicle-data-table-card input[type="text"] {
+    width: calc(100% - 140px);
+    margin-right: 15px;
+}
+
+.vehicle-details {
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.vehicle-details h4 {
+    font-size: 1.3em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.vehicle-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.vehicle-details th, .vehicle-details td {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.vehicle-details th {
+    background-color: #f3f7ff;
+    font-weight: bold;
+    color: #1351d8;
+}
+
+@media (max-width: 992px) {
+    .dashboard-main-area {
+        flex-direction: column;
+    }
+    .vehicle-display-card, .dashboard-data-metrics {
+        flex: auto;
+        min-width: unset;
+    }
+    .dashboard-content-wrapper {
+        padding: 20px 15px;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-card {
+        padding: 18px;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    .dashboard-card input[type="text"],
+    .dashboard-card button,
+    .dashboard-card select {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .vehicle-data-table-card input[type="text"] {
+        width: 100%;
+    }
+    .metric-card p {
+        font-size: 1.8em;
+    }
+}
